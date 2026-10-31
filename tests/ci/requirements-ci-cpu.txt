@@ -14,7 +14,7 @@ sentencepiece==0.2.1
 setuptools<80.0.0
 tiktoken==0.13.0
 tinker==0.26.2  # SDK wire schema for the tinker gateway proto round-trip tests
-torch==2.11.0
+torch==2.13.0
 torchvision==0.26.0
 typed-argument-parser>=1.10,<2
 wheel
