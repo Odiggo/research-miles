@@ -25,6 +25,20 @@ GLM5.2 flagships, not a smaller cut of them.
 
 ## 2. Supported Variants
 
+### Opt-in head-sharded KDA
+
+The fork provides an optional SkyRL-derived Megatron KDA implementation. Replace
+the existing `--spec` pair with
+`--spec miles_plugins.models.glm5_next.skyrl_kda.spec get_spec` to select it.
+It requires CP1, packed THD inputs, and sequence parallelism for TP > 1. KDA
+projections remain BF16; the entrypoint retains uncached TE weights. Optimizer and
+loss settings are not changed.
+
+See the package's
+[`README.md`](https://github.com/Odiggo/research-miles/blob/codex/skyrl-kda-integration/miles_plugins/models/glm5_next/skyrl_kda/README.md)
+for integration details and the limits of the completed two-B200 component test.
+The default GLM KDA path remains unchanged.
+
 | Variant | `--model-name` | Layers |
 |---|---|---|
 | Full | `GLM-5.3-Flash` | 45 |
