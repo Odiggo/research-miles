@@ -39,6 +39,22 @@ See the package's
 for integration details and the limits of the completed two-B200 component test.
 The default GLM KDA path remains unchanged.
 
+### Opt-in native Megatron KDA
+
+For a runtime containing MCore's native GLM KDA and `KDALayerConfig` API, select:
+
+```text
+--spec miles_plugins.models.glm5_next.native_kda.spec get_spec
+```
+
+This uses native head sharding and section-aware fused-QKV checkpoint mappings,
+while retaining Miles' existing DSA/mHC, optimizer and loss code. It requires CP1,
+packed THD inputs and SP for TP > 1. See the native package's
+[`README.md`](https://github.com/Odiggo/research-miles/blob/codex/native-kda-integration/miles_plugins/models/glm5_next/native_kda/README.md)
+for runtime prerequisites and the completed two-B200 component measurements.
+The cached training image's older MCore does not expose this API; a successful
+component test with newer MCore does not establish full-stack compatibility.
+
 | Variant | `--model-name` | Layers |
 |---|---|---|
 | Full | `GLM-5.3-Flash` | 45 |

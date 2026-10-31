@@ -17,6 +17,7 @@ setup(
         "miles.dashboard": ["static/*"],
         "miles.utils.chat_template_utils.templates": ["*.jinja"],
         "miles_plugins.models.glm5_next.skyrl_kda": ["LICENSE.skyrl", "README.md"],
+        "miles_plugins.models.glm5_next.native_kda": ["README.md"],
     },
     install_requires=_fetch_requirements("requirements.txt"),
     extras_require={
